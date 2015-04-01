@@ -2,8 +2,8 @@
 
 
 tabInt * initTabInt(tabInt * t, int taille){
-	t=malloc(sizeof(tabInt));
-	t->t=malloc(sizeof(int)*taille);
+	t=(tabInt*)malloc(sizeof(tabInt));
+	t->t=(int *)malloc(sizeof(int)*taille);
 	t->tailleUtil=0;
 	t->tailleMax=taille;
 }
@@ -146,6 +146,12 @@ donnees lecture_fichier(char *file){
 		}
 		printf(" \n");
 	}
+	fclose(fin);
 	return d;
 	
+}
+
+void desallocTabInt(tabInt * t){
+	free(t->t);
+	free(t);
 }
