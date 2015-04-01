@@ -64,4 +64,6 @@ tabC * remplirTabC(tabC * cycles, tabInt * perm);
 // fonction pour lire les fichiers
 donnees lecture_fichier(char *file);
 
+int cycleMin(tabC * cycles);
+
 #endif

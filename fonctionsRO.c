@@ -155,3 +155,14 @@ void desallocTabInt(tabInt * t){
 	free(t->t);
 	free(t);
 }
+
+int cycleMin(tabC * cycles){
+	int i,min=cycles->tailleCycles->t[0],imin=0;
+	for(i=0;i<cycles->tailleCycles->tailleUtil;++i){
+		if(min>cycles->tailleCycles->t[i]){
+			min=cycles->tailleCycles->t[i];
+			imin=i;
+		}
+	}
+	return imin;
+}

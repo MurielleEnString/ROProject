@@ -49,7 +49,7 @@ double crono_ms()
 int main(int argc, char *argv[])
 {
 	int i,j,nb;
-	donnees d=lecture_fichier("relief/relief10.dat");
+	donnees d=lecture_fichier("relief/relief20.dat");
 	double temps;
 	int nbsol = 0; /* Compteur du nombre d'appels au solveur GLPK */ 
 	
@@ -176,8 +176,8 @@ int main(int argc, char *argv[])
 	int k;
 	while(cycles->tailleCycles->tailleUtil>1 ){ /* Tant qu'il y a plus d'un cycle dans le tableau des cycles, on continue de casser les cycles. */
 		
-		for(i=0;i<cycles->tailleCycles->tailleUtil;++i){
-			
+			//On récupère l'indice du pus petit cycle
+			i=cycleMin(cycles);
 			d.nbContr++;
 			
 			glp_add_rows(prob, cycles->tailleCycles->t[i]);/*Ajout d'autant de ligne dans la matrice creuse, qu'il y a de cycles dans la solution*/
@@ -228,8 +228,9 @@ int main(int argc, char *argv[])
 			}
 			
 			
-		}
 		
+		
+		++nbsol;
 		
 		printf("Nombre de cycles : %d \n", cycles->tailleCycles->tailleUtil);
 		/* chargement de la matrice dans le problème */
