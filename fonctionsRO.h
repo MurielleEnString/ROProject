@@ -64,6 +64,7 @@ tabC * remplirTabC(tabC * cycles, tabInt * perm);
 // fonction pour lire les fichiers
 donnees lecture_fichier(char *file);
 
+// fonction permettant de récupérer l'indice du plus petit cycle
 int cycleMin(tabC * cycles);
 
 #endif
